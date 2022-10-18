@@ -1,16 +1,25 @@
-import React from "react";
-import {FaStar} from "react-icons/fa";
+import React, { useState } from "react";
+import { FaStar } from "react-icons/fa";
 
-function StarRating({ totalStars = 5 }){  //5 stars is pre-set here
+function StarRating({ totalStars = 5 }) { //5 stars is pre-set here
+  
+  const [selectedStars, setSelectedStars] = useState(0);
 
-    const Star = ({ selected = false}) => (
-        <FaStar color={selected ? "red": "grey"} />
-    )
-    const createArray = length => [...Array(length)];
+  const Star = ({ selected = false, onSelect = (f) => f }) => (
+    <FaStar color={selected ? "red" : "grey"} onClick={onSelect}/>
+  );
+  const createArray = (length) => [...Array(length)];
 
-    console.log('CreateArray lengh = '+createArray);
-
-    return createArray(totalStars).map((n,i) => <Star key={i} />);
+  return (
+    <>
+      {createArray(totalStars).map((n, i) => (
+        <Star key={i} selected={selectedStars > i} onSelect={() => setSelectedStars(i+1)} />
+      ))}
+      <p>
+        {selectedStars} of {totalStars} stars
+      </p>
+    </>
+  );
 }
- 
+
 export default StarRating;
