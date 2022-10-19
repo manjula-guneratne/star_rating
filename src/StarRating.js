@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import { createArray} from "./lib";
+import Star from "./Star";
 
-function StarRating({ totalStars = 5, style = {} }) {
+function StarRating({ totalStars = 5, selectedStars=0 }) {
 
-  const [selectedStars, setSelectedStars] = useState(0);
-
-  const createArray = (length) => [...Array(length)];
-  
   return (
     <>
       {createArray(totalStars).map((n, i) => (
