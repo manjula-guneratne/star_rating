@@ -9,7 +9,7 @@ function Colour({title, colour, rating}){
             <div style={{height: 50, backgroundColor: colour}} />
             <StarRating selectedStars={rating} />
         </section>
-    )
+    );
 }
 
 export default Colour;
