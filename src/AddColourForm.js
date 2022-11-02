@@ -25,3 +25,5 @@ function AddColourForm({ onNewColour = (f) => f }) {
     </form>
   );
 }
+
+export default AddColourForm;
