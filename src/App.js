@@ -1,12 +1,8 @@
-import React, { useState } from "react";
-import colourData from "./colour-data.json";
+import React from "react";
 import ColourList from "./ColourList.js";
 import AddColourForm from "./AddColourForm";
-import { v4 } from "uuid";
 
 function App() {
-  const [colours, setColours] = useState(colourData);
-
   // const removeColour = id => {
   //   const newColours = colours.filter(colour => colour.id !== id);
   //   setColours(newColours);
@@ -19,20 +15,7 @@ function App() {
 
   return (
     <>
-      <AddColourForm
-        onNewColour={(title, colour) => {
-          const newColours = [
-            ...colours,
-            {
-              id: v4(),
-              rating: 0,
-              title,
-              colour,
-            },
-          ];
-          setColours(newColours);
-        }}
-      />
+      <AddColourForm />
       <ColourList />
     </>
   );
