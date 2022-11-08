@@ -1,20 +1,19 @@
 import React from "react";
 import StarRating from "./StarRating";
-import { FaTrash } from "react-icons/fa";
+import { useColours } from "./colour-hooks ";
 
 function Colour({
   id,
   title,
   colour,
   rating,
-  onRemove = (f) => f,
-  onRate = (f) => f,
 }) {
+  const { rateColour, removeColour} = useColours();
   return (
     <section>
       <h1>{title}</h1>
       <button onClick={() => onRemove(id)}>
-        <FaTrash />
+        X
       </button>
       <div style={{ height: 50, backgroundColor: colour }} />
       <StarRating
